@@ -10,4 +10,8 @@ public class Bruch {
     public Bruch kehrWert() {
         return new Bruch(nenner, zähler);
     }
+
+    public String toString() {
+        return zähler + "/" + nenner;
+    }
 }
