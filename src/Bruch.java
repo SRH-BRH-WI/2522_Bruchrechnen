@@ -2,6 +2,17 @@ public class Bruch {
     private final long zähler;
     private final long nenner;
 
+    public Bruch() {
+        this(1, 1);
+    }
+
+    // als Hausaufgabe
+    public Bruch(double zahl) {
+        // TODO
+        // wie geht das?
+        this( (int)zahl, 1); // nicht korrekt, nur damit die IDE nicht jammert ...
+    }
+
     public Bruch(long zähler, long nenner) {
         this.zähler = zähler;
         this.nenner = nenner;
@@ -38,8 +49,23 @@ public class Bruch {
         return new Bruch(nenner, zähler);
     }
 
+    public boolean isEqual(Bruch b) {
+        // Möglichkeit 1: mathematische Lösung
+//        Bruch c = this.div(b);
+//        return (c.zähler == c.nenner);
+
+        // Möglichkeit 2: triviale Lösung
+        Bruch a = this.kürze();
+        b = b.kürze();
+        return (a.zähler == b.zähler && a.nenner == b.nenner);
+    }
+
     public String toString() {
         return zähler + "/" + nenner;
+    }
+
+    public static Bruch addiere(Bruch b1, Bruch b2) {
+        return b1.add(b2);
     }
 
     private long ggT(long a, long b) {
